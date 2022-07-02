@@ -103,8 +103,9 @@ function SankeyChart({
     .join("rect")
       .attr("x", d => d.x0)
       .attr("y", d => d.y0)
-      .attr("height", d => d.y1 - d.y0)
-      .attr("width", d => d.x1 - d.x0);
+      //.attr("height", d => d.y1 - d.y0)
+      .attr("height", d => Math.min((d.y1 - d.y0), 4))
+      .attr("width", d => (d.x1 - d.x0)*.4);
 
   if (G) node.attr("fill", ({index: i}) => color(G[i]));
   if (Tt) node.append("title").text(({index: i}) => Tt[i]);
