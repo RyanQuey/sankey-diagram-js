@@ -1,10 +1,10 @@
 d3.sankey = function() {
-  var sankey = {},
-      nodeWidth = 24,
-      nodePadding = 8,
-      size = [1, 1],
-      nodes = [],
-      links = [];
+  let sankey = {}
+  let nodeWidth = 24
+  let nodePadding = 8
+  let size = [1, 1]
+  let nodes = []
+  let links = [];
 
   sankey.nodeWidth = function(_) {
     if (!arguments.length) return nodeWidth;
@@ -290,5 +290,6 @@ d3.sankey = function() {
     return link.value;
   }
 
+  // this is the svg element
   return sankey;
 };
