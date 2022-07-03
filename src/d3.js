@@ -9,7 +9,7 @@ import SankeyChart from "./SankeyChart"
 // borrowing from the value in teh select box in the example
 const nodeAlign = "justify"
 const linkColor = "source-target"
-const width = 900
+const width = 1800
 
 // this is an svg element
 const createChart = (energy) => (

@@ -5,6 +5,12 @@
 //import rd3 from 'react-d3-library'
 import * as d3 from "d3"
 import * as d3Sankey from "d3-sankey"
+/*
+ * takes two args
+ * @param elements Object with keys nodes and links
+ * @param options Object with all kinds of stuff, and lots of defaults set. 
+ *
+ */ 
 
 function SankeyChart({
   nodes, // an iterable of node objects (typically [{id}, …]); implied by links if missing
@@ -103,8 +109,10 @@ function SankeyChart({
     .join("rect")
       .attr("x", d => d.x0)
       .attr("y", d => d.y0)
-      //.attr("height", d => d.y1 - d.y0)
-      .attr("height", d => Math.min((d.y1 - d.y0), 4))
+      // experimenting with different heights and widths
+      .attr("height", d => d.y1 - d.y0)
+      //.attr("width", d => d.x1 - d.x0);
+      //.attr("height", d => Math.min((d.y1 - d.y0), 4))
       .attr("width", d => (d.x1 - d.x0)*.4);
 
   if (G) node.attr("fill", ({index: i}) => color(G[i]));

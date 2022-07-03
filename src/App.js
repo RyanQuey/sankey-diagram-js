@@ -41,11 +41,11 @@ class App extends React.Component {
         }
 
         src = `${src}a`
-      // } else if (chanceNum2 < 3) {
-      //   if (src > 20) {
-      //     target = `${target}b`
-      //   }
-      //   src = `${src}b`
+      } else if (chanceNum2 < 3) {
+        if (src > 20) {
+          target = `${target}b`
+        }
+        src = `${src}b`
       }
 
 
@@ -82,6 +82,10 @@ class App extends React.Component {
       this.addSome(rawData, 20)
       this.addSome(rawData, 20)
       this.addSome(rawData, 20)
+      this.addSome(rawData, 20)
+      this.addSome(rawData, 20)
+      this.addSome(rawData, 20)
+      this.addSome(rawData, 20)
       this.addSome(rawData, 30)
       this.addSome(rawData, 30)
       this.addSome(rawData, 31)
@@ -89,6 +93,18 @@ class App extends React.Component {
       this.addSome(rawData, 40)
       this.addSome(rawData, 40)
       this.addSome(rawData, 40)
+      this.addSome(rawData, 40)
+      this.addSome(rawData, 40)
+      this.addSome(rawData, 40)
+      this.addSome(rawData, 40)
+      this.addSome(rawData, 50)
+      this.addSome(rawData, 50)
+      this.addSome(rawData, 50)
+      this.addSome(rawData, 50)
+      this.addSome(rawData, 50)
+      this.addSome(rawData, 50)
+      this.addSome(rawData, 50)
+      this.addSome(rawData, 50)
       this.addSome(rawData, 50)
     }
 
@@ -127,8 +143,10 @@ class App extends React.Component {
   render () {
     return (
       <div className="App">
-        <div id="d3-chart">
-          <RD3Component data={this.state.d3} />
+        <div className="horizontal-scroll-container">
+          <div id="d3-chart">
+            <RD3Component data={this.state.d3} />
+          </div>
         </div>
       </div>
     );

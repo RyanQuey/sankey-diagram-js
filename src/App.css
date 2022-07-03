@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.horizontal-scroll-container {
+  margin: auto;
+  overflow-x: auto;
+  max-width: 960px;
+} 
+#d3-chart {
+  max-width: 1800px;
+  width: 1800px;
+} 
