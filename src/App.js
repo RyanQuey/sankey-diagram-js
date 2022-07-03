@@ -7,9 +7,6 @@ import energyData from "./data.json"
 
 const RD3Component = rd3.Component;
 
-// TODO try this on another page https://bl.ocks.org/emeeks/e9d64d27f286e61493c9
-// note how the x axis is very secure, and it's clear where the skips are. Key features for our use
-// case. 
 class App extends React.Component {
 
   constructor(props) {
@@ -19,20 +16,16 @@ class App extends React.Component {
     this.transformData = this.transformData.bind(this)
   }
 
-  addSome(data, base, incrementer = 1) {
-    let makeNewItem = (source, target) => {
-      return 
-    }
-
+  addSome({data, base, incrementer = 1, forceTargetFinale}) {
+    
     for (let i = base; i < base + 20; i++) {
       let src = i + incrementer
-      //let target = src + parseInt(Math.random(3) * 10)
       let chanceNum = parseInt(Math.random() * 10) 
       let isBigger = chanceNum > 6
       let target = isBigger ? src + chanceNum :  src + 1
-      if (chanceNum > 10) {
-        target = "All Nations Worshipping Christ.Rev"
-      }
+      
+      console.log("forceTargetFinale", forceTargetFinale)
+
       let chanceNum2 = parseInt(Math.random() * 10) 
       if (chanceNum2 > 8) {
         // only do if big
@@ -49,6 +42,11 @@ class App extends React.Component {
       }
 
 
+
+      if (forceTargetFinale) {
+        target = "Christ's final victory"
+      }
+
       let valBase = Math.random()*3
       if (valBase > 2.3) {
         // just to get bigger fluctuation
@@ -63,49 +61,39 @@ class App extends React.Component {
     }
   }
   transformData (rawData) {
+    // large incrementers makes for some threads that span across the whole chart
+    // base determines what int to start at
+    // count for how many times to run this set
+    // forceTargetFinal for some to have it all come together to one thing at the end
+    const sets = [
+      {base: 1, incrementer: 1, count: 5},
+      {base: 1, incrementer: 10, count: 1},
+      {base: 15, incrementer: 1, count: 4},
+      {base: 20, incrementer: 20, count: 1},
+      {base: 20, incrementer: 1, count: 15},
+      {base: 30, incrementer: 1, count: 3},
+      {base: 30, incrementer: 10, count: 5},
+      {base: 40, incrementer: 1, count: 10},
+      {base: 50, incrementer: 1, count: 10},
+      {base: 60, incrementer: 1, count: 10},
+      {base: 40, incrementer: 1, count: 3, forceTargetFinale: true},
+      {base: 50, incrementer: 1, count: 3, forceTargetFinale: true},
+      {base: 60, incrementer: 1, count: 10, forceTargetFinale: true},
+    ]
     
+    // this to add a quick multiplier effect
     for (let i = 0; i < 4; i++) {
-      this.addSome(rawData, 1)
-      this.addSome(rawData, 1)
-      this.addSome(rawData, 1)
-      this.addSome(rawData, 1)
-      this.addSome(rawData, 1)
-      this.addSome(rawData, 20, 20)
-      this.addSome(rawData, 1, 10)
-      this.addSome(rawData, 15)
-      this.addSome(rawData, 20)
-      this.addSome(rawData, 20)
-      this.addSome(rawData, 20)
-      this.addSome(rawData, 20)
-      this.addSome(rawData, 20)
-      this.addSome(rawData, 20)
-      this.addSome(rawData, 20)
-      this.addSome(rawData, 20)
-      this.addSome(rawData, 20)
-      this.addSome(rawData, 20)
-      this.addSome(rawData, 20)
-      this.addSome(rawData, 20)
-      this.addSome(rawData, 20)
-      this.addSome(rawData, 30)
-      this.addSome(rawData, 30)
-      this.addSome(rawData, 31)
-      this.addSome(rawData, 40)
-      this.addSome(rawData, 40)
-      this.addSome(rawData, 40)
-      this.addSome(rawData, 40)
-      this.addSome(rawData, 40)
-      this.addSome(rawData, 40)
-      this.addSome(rawData, 40)
-      this.addSome(rawData, 40)
-      this.addSome(rawData, 50)
-      this.addSome(rawData, 50)
-      this.addSome(rawData, 50)
-      this.addSome(rawData, 50)
-      this.addSome(rawData, 50)
-      this.addSome(rawData, 50)
-      this.addSome(rawData, 50)
-      this.addSome(rawData, 50)
-      this.addSome(rawData, 50)
+      console.log("this even happening???\n\n\n\n")
+      sets.forEach(set => {
+        for (let i = 0; i < set.count; i++) {
+          this.addSome({
+            data: rawData, 
+            base: set.base, 
+            incrementer: set.incrementer, 
+            forceTargetFinale: set.forceTargetFinale,
+          })
+        }
+      })
     }
 
     const transformedData = rawData.map(item => {

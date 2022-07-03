@@ -22,6 +22,7 @@ python -m SimpleHTTPServer
 ```
 
 Now open [http://localhost:8000/index.flowing.html](http://localhost:8000/index.flowing.html)
+Does not have hot reload.
 
 ## Available Scripts
 
