@@ -1,6 +1,27 @@
-# Getting Started with Create React App
+# Sankey Diagrams
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Two different charts so far:
+### 1 - in React
+![image](https://user-images.githubusercontent.com/22231483/177028280-bf0eae79-a310-4699-a2de-bfbed776dbd7.png)
+
+Just do 
+```
+nvm use
+npm start
+```
+
+Now open [http://localhost:3000/](http://localhost:3000/)
+
+### 2 - Straight JS
+Based on https://bl.ocks.org/emeeks/e9d64d27f286e61493c9
+```
+cd ./sankey.flowing
+python -m SimpleHTTPServer
+```
+
+Now open [http://localhost:8000/index.flowing.html](http://localhost:8000/index.flowing.html)
 
 ## Available Scripts
 
